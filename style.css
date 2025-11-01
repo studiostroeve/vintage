@@ -62,17 +62,20 @@ h2 {
   background: white;
   display: grid;
   overflow: hidden;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-sizing: border-box;
+  transition: transform .3s ease,
+              box-shadow .3s ease;
 }
 
 .mic-card:hover {
-  transform: scale(1.0);
   background: black;
   color: white;
-  h2 {
-    color: white;
-  }
+  position: relative;
+  transform: translateY(-4px);
+  box-shadow: 8px 4px 32px rgba(0,0,0,.25);
+  transition: transform .5s ease,
+              box-shadow .5s ease;
 }
 
 .fx-box {
@@ -84,7 +87,11 @@ h2 {
 }
 
 .mic-card:hover .fx-box {
-  border: 2px black solid;
+  border: 3px black solid;
+}
+
+.mic-card:hover h2 {
+  color: white;
 }
 
 .mic-card img {
@@ -107,6 +114,10 @@ h2 {
   font-size: 1.3em;
   padding: .5em .5em;
   pointer-events: none;
+}
+
+.mic-card:hover .mic-label {
+  transform: translate();
 }
 
 footer {
@@ -141,7 +152,23 @@ footer {
   min-width: 135px;
   max-height: 500px;
   height: auto;
+  scrollbar-width: auto;
+  scrollbar-color: black transparent;
+  scrollbar-track-color: transparent;
+}
 
+.slideshow-preview::-webkit-scrollbar {
+  border-radius: 0;
+}
+
+.slideshow-preview::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: transparent;
+}
+
+.slideshow-preview::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: black;
 }
 
 .preview-slide {
@@ -192,6 +219,19 @@ footer {
   margin-left: 1rem;
   align-self: center;
   color: white;
+}
+.sub-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 3rem;
+}
+
+#motion {
+  max-width: 500px;
+  aspect-ratio: 1;
 }
 
 @media screen and (max-width: 800px) {
